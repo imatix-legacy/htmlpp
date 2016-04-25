@@ -1,0 +1,76 @@
+.---------------------------------------------------------------------
+.-  macros.def  Various macro definitions
+.-
+.-  Written:  97/06/02  Pieter Hintjens <ph@imatix.com>
+.-  Revised:  98/05/08  Pieter Hintjens
+.---------------------------------------------------------------------
+
+.-  Macros for common HTML tags and constructions
+
+.macro TITLE  <TITLE>$*</TITLE>
+.macro H1     <H1>$*</H1>
+.macro H2     <H2>$*</H2>
+.macro H3     <H3>$*</H3>
+.macro H4     <H4>$*</H4>
+.macro H5     <H5>$*</H5>
+.macro H6     <H6>$*</H6>
+.macro HREF   <A HREF="$1">$+</A>
+
+.macro THEAD  <TABLE> -
+              <TR ALIGN=LEFT> -
+                  {<TH>$n</TH>} -
+              </TR>
+.macro TBODY  <TR ALIGN=LEFT>{<TD>$n</TD>}</TR>
+.macro TFOOT  </TABLE>
+
+.macro IMAGE  <IMG SRC="$1" WIDTH="&image_width("$1")" -
+              HEIGHT="&image_height("$1")" ALT="$+">
+
+.-----------------------------------------------------------------------------
+.-
+.-  These macros come from the Xitami documentation where they're used to
+.-  build FAQ tables.  The FAQ_TABLE macro defines a FAQ section, like so:
+.-
+.-    .FAQ_TABLE g General Questions
+.-
+.-  I use a single letter prefix but you can use anything unique.  This is
+.-  used to name the anchors, which will be 'g_1', 'g_2', etc. for FAQs in
+.-  this section.  The FAQ macro defines one FAQ entry:
+.-
+.-    <H3>General Questions</H3>
+.-
+.-    .FAQ g How do you pronounce \'Xitami\'?
+.-    <P>Just say 'iMatix' backwards -- it's simple!
+.-
+.-  Note that quotes and apostrophes need to be escaped.
+.-
+.-  These macros use anchors to count the number of questions in each
+.-  section, then build a .for loop to output the FAQ tables.  Since the
+.-  tables must be built in the pass following the entries, the FAQ_TABLE
+.-  macro propogates itself through to pass 2, after the FAQ macros have
+.-  been processed.  This may fail if you put the FAQ macros inside .if or
+.-  .for loops.  In that case you need to pass the document through htmlpp
+.-  twice to resolve all the anchors.
+.-
+.-  FAQ_TABLE also uses a small trick to skip the first argument so that it
+.-  can use $+ for the table title.
+.-
+
+.macro FAQ -
+.define count_$1 = $\(count_$1?0) + 1 -
+<HR WIDTH=10%><P><FONT SIZE=+1><EM>$+</EM></FONT>\ -
+.build anchor $1_$\(count_$1)=$+ -
+.build anchor last_$1=$\(count_$1)
+
+.macro FAQ_TABLE -
+.if $\(PASS) == 1 -
+.FAQ_TABLE $* -
+.else -
+.define skip $1 -
+<P><EM>$+</EM> -
+<UL> -
+.for nbr from 1 to $\(last_$1) -
+<LI>$\(*$1_$\(nbr)) -
+.endfor -
+</UL> -
+.endif

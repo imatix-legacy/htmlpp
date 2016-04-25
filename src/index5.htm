@@ -1,0 +1,223 @@
+<HTML><HEAD><!--Revised: 8 Nov, 1998 By: Pieter Hintjens-->
+<TITLE>Other Information</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> htmlpp home page</A><BR>
+ | <A href="index.htm">&lt;&lt;</A> | <A href="index4.htm">&lt;</A>
+ | &gt; | <A href="index5.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="htmlpp1.gif" ALT="htmlpp" WIDTH=100 HEIGHT=75 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>htmlpp</B><BR><FONT SIZE=2>Version 4.2a
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC67">Other Information</A></H2>
+
+<P>The most recent version of htmlpp is located at <A href="http://www.imatix.com/">http://www.imatix.com/</A>.
+You can download it from <A href="/pub/tools/htmlp42a.zip">htmlpp.zip</A>.
+
+<P>The Libero documentation is one example of htmlpp in action.
+Download the archive <A href="/pub/tools/lrdoc.zip">lrdoc.zip</A> to get hold of a set of text
+and definition files for htmlpp.
+
+<P>If you want to change htmlpp, get a hold of the Camel Book
+(Programming Perl), and the Libero documentation.
+
+<H3><A NAME="TOC68">Product History</A></H3>
+
+<UL>
+<LI>Version 4.2a published 20 October 1998
+<BR>Thanks to Enrique Bengoechea &lt;ebb@eco.uc3m.es&gt; for
+the many improvements to htmlpp.
+<BR>- default input file extension changed from .txt to .htp.
+<BR>- added French support in date formatting routines.
+<BR>- completed the character entity references for accented characters.
+<BR>- added -charset command-line option.
+<BR>- corrected a fault we added to the &relpath() function.
+<BR>- added support for attributes in links.
+<BR>- added support for relative references.
+<BR>- added support for multilanguage symbols, e.g. $(home.es) and
+$(home.en).
+<BR>- added .for loop that queries flat-text databases.
+
+<LI>Version 4.1a published 5 August 1998
+<BR>- table of contents is now built at very end, before final pass.
+<BR>- added &pageref() intrinsic function (thanks to Alan Silver).
+<BR>- command-line options can be supplied in shorted form (e.g. -d
+      for -debug).
+<BR>- added $(DIR) symbol for specifying the target directory.
+<BR>- added &relpath() function (thanks to Enrique Bengoechea).
+
+<LI>Version 4.0g published 24 July 1998
+<BR>- added -noquote option for the .macro command.
+<BR>- corrected htmlpp to allow nested intrinsice functions.
+<BR>- corrected bug in &file_time() function.
+
+<LI>Version 4.0f published 4th June 1998
+<BR>- added DIR_HREFL field for .build dir
+<BR>- corrected error in &date function (thanks to Enrique Bengoechea).
+<BR>- added support for multilanguage &date function (also thanks to EB).
+<BR>- added the .pipe command and PIPE_HEADER, PIPE_FOOTER blocks.
+<BR>- added -nofunc option (thanks to Alister Bulman).
+<BR>- added -nosplit option for the .macro command.
+
+<LI>Version 4.0e published 31 May 1998
+<BR>- added a number of date-handling intrinsic functions.
+<BR>- .for loops generate a .define command for their loop variable (thanks
+      to Bernard de Rubinat).
+<BR>- corrected an error in the -page option.
+<BR>- default value for an anchor is now the anchor title.
+
+<LI>Version 4.0d published 9 May 1998
+<BR>- $(*name) was failing for simple anchors.
+<BR>- .define commands are kept through passes, which makes loops
+      work much better (thanks to Bernard de Rubinat).
+<BR>- added &system() intrinsic function (thanks to Keith Dart).
+<BR>- no longer does case-conversion in .build dir blocks.
+<BR>- removed warning on long filenames.
+<BR>- added -page switch for selective page generation.
+
+<LI>Version 4.0c published 18 April 1998
+<BR>- Added DIR_SIZEK and DIR_SIZEM directory block variables
+<BR>- Finally, you can escape variables in macro text so that
+      they are only expanded in the next pass.
+<BR>- LINEMAX now defaults to 0 (no warnings).
+<BR>- Worked-around bug in Perl which caused htmlpp to block when
+      macro arguments contained single quote '.
+<BR>- &(expr) was not working - fixed by James Thieler.
+<BR>- Symbols that refer to anchors now produce anchor title if possible,
+      thanks to Craig Smith.
+
+<LI>Version 4.0b published 24 February 1998
+<BR>- Correctly handles comments in macro definitions
+<BR>- Allows .page commands to be built by .for loops
+<BR>- Underlines in macro arguments are no longer replaced by spaces.
+<BR>- Lines ending in '\' are output without trailing newlines
+
+<LI>Version 4.0a published 07 February 1998
+<BR>- Searches LIBPATH, then PATH for document files.
+<BR>- Macros can now contain { escape sequences (e.g. for JavaScript
+      subroutines)
+<BR>- Multiline .echo commands now work.
+<BR>- Added various new intrinsic functions.
+<BR>- Intrinsic &time() did not work - fixed.
+<BR>- Symbol expansion code rewritten to allow any level of embedding.
+
+<LI>Version 3.0 published 16 June 1997.
+<BR>V3.9e - .for command changed to handle variable expansion in a
+smarter manner: for loop variables are expanded, but others are copied
+through to next pass.
+<BR>V3.9d - .block commands are no longer interpreted in the first
+pass; this lets you change headers and footers within a document.
+$(*symbol) was wrongly translated sometimes.
+<BR>V3.9c - added &image_width() and &image_height() intrinsic
+functions; added $(TOC_LEVEL) variable.
+<BR>V3.9b - reversed changes of version 3.8; macros expand variables
+immediately.  This was needed to correctly generate tables of contents.
+Also changed %(VAR) behaviour to match documentation - if variable is
+not defined, no error message is issued.
+<BR>V3.9a - added anchor titles, $0, and $#.
+<BR>V3.9 - added header level numbering and $+ symbol; added -env
+option.
+<BR>V3.8 - variables in macro text are translated in following pass.
+<BR>V3.7 - correctly uses htm variable for output files.
+<BR>V3.6 - added guru_opt.fmt file for finer GuruMode control.
+<BR>V3.5 - improved GuruMode, again again.
+<BR>V3.4 - improved GuruMode, again.
+<BR>V3.3 - added $(DOCBASE) variable; improved multiline macros,
+improved GuruMode.
+<BR>V3.2 - no longer complains on forward anchors references.
+Removed .guru command and reworked GuruMode.
+<BR>V3.1 - updated some functions and improved the doc.
+<BR>V3.00 - Added macro capabilities; added GuruMode; fixed some
+incompatibilities with Perl 4; added .for autosplit feature; \.
+replaced by . in whole line, not just at start; added support for
+accented characters.
+
+<LI>Version 2.2 published 25 May 1997.
+<BR>V2.21 - added intrinsic function syntax, and &date().
+<BR>V2.20 - &("...") permits Perl text including '(' and ')';
+Delays translation of symbols in .for loops until loop is
+output.
+
+<LI>Version 2.1 published 8 Mar 1997.
+<BR>V2.18 - .include also allows file with path name.
+<BR>V2.17 - cosmetic changes.
+<BR>V2.16 - search PATH path for .include'd files.
+<BR>V2.15 - cosmetic changes.
+<BR>V2.14 - ".define xx = expr" now expands variables first.
+<BR>V2.13 - .build dir always lists filenames in lowercase.
+<BR>V2.11 - variable expansion improved a little.
+<BR>V2.12 - cosmetic changes.
+<BR>V2.10 - .define command is resolved as late as possible,
+instead of immediately.  .For loops may be indented; $for_list
+is accessible locally inside each level.  Minor documentation
+cleanups.  Fixed error in .if block parsing.  Lots of cosmetic
+changes to eliminate warnings when 'perl -w' used.  Corrected
+misnumbering of HTML headers.
+
+<LI>Version 2.0 published 17 Feb 1997.
+<BR>V2.07 - minor code cleanups;
+<BR>V2.06 - correction in .page parsing code for $(TITLE);
+added %(...) for environment variables.
+<BR>V2.05 - correction in symbol replacement code.
+<BR>V2.04 - more corrections for Perl 5.
+<BR>V2.03 - minor corrections for Perl 5.
+<BR>V2.02 - added notion of local blocks, -debug switch.
+<BR>V2.01 - added &(...) symbol; added .include `command`;
+blocks can now contain action lines; added index_open,
+index_close, and index_entry blocks; rewrote dialog to do
+multipass processing.  Whew.  Oh yeah: added .for/.endfor as
+asked for by Dave Rockwell (rockwell@wwwcis4.shr.dec.com).
+
+<LI>Version 1.6 published 14 Jan 1997.
+<BR>V1.62 - added .include `command` function.
+
+<LI>Version 1.5 published 4 Nov 1996.
+<BR>V1.61 - error in code that added '.txt' extension.
+<BR>V1.60 - added autoincrement/decrement symbols, permitted
+multiple filenames on command line.
+<BR>V1.55 - '.ignore page' ignores next .page in index table.
+<LI>Version 1.4 published 9 Jun 1996.
+<BR>V1.54 - .endblock preferred to .end.
+<BR>V1.53 - commands can continue over several lines, spaces
+allowed after ".".
+<BR>V1.52 - added $(symbol?value) and improved doc.
+<BR>V1.51 - modified for Perl 5, thanks to Ewen McNeill.
+<BR>V1.50 - supports user-defined blocks.
+<BR>V1.41 - log errors in separate listing file.
+
+<LI>Version 1.3 published 13 May 1996.
+<BR>V1.31 - improved documentation and packaging.
+
+<LI>Version 1.2 escaped around 13 April 1996.
+<BR>V1.22 - headers anchors changed to include whole line.
+<BR>V1.21 - sorted '.build dir' entries by name.
+
+<LI>Version 1.1 released 6 April 1996.
+
+<LI>Version 1.0 written 3 April, 1996.
+</UL>
+
+
+
+
+
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="index.htm">&lt;&lt;</A> | <A href="index4.htm">&lt;</A>
+ | &gt; | <A href="index5.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A HREF="index.htm">htmlpp - The HTML Preprocessor</A>
+| <A HREF="index1.htm">Installing Htmlpp</A>
+| <A HREF="index2.htm">Getting Started</A>
+| <A HREF="index3.htm">Htmlpp Reference</A>
+| <A HREF="index4.htm">Frequently Asked Questions</A>
+| <EM>Other Information</EM>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

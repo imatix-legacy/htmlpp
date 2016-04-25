@@ -1,0 +1,199 @@
+<HTML><HEAD><!--Revised: 8 Nov, 1998 By: Pieter Hintjens-->
+<TITLE>Installing Htmlpp</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> htmlpp home page</A><BR>
+ | <A href="index.htm">&lt;&lt;</A> | <A href="index.htm">&lt;</A>
+ | <A href="index2.htm">&gt;</A> | <A href="index5.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="htmlpp1.gif" ALT="htmlpp" WIDTH=100 HEIGHT=75 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>htmlpp</B><BR><FONT SIZE=2>Version 4.2a
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC2">Installing Htmlpp</A></H2>
+
+<H3><A NAME="TOC3">Getting Htmlpp</A></H3>
+
+<UL>
+<LI>Htmlpp is available from the <A href="http://www.imatix.com/">iMatix website</A> as a
+<A href="/pub/tools/htmlp42a.zip">zip file</A> for Windows or DOS or OS/2 and as a
+<A href="/pub/tools/htmlp42a.tgz">tgz file</A> for UNIX.
+<LI>You need PKUNZIP for MS-DOS, <A href="http://www.cdrom.com/pub/infozip/">Info-zip's unzip</A> for
+most platforms, or some other compatible unzip tool.
+<LI>You need <A href="ftp://ftp.ee.umanitoba.ca/pub/msdos/perl">Perl 4.x or 5.x</A> for your platform, or
+<A href="ftp://ftp.cs.colorado.edu/mirrors/CPAN/ports/msdos/old/perl4/bperl1x.zip">bperl</A> for MS-DOS.
+<LI>Htmlpp comes with a small example - its own documentation.
+A larger example - the Libero documentation - is also on-line
+as a <A href="/pub/tools/lrdoc.zip">zip file</A> from the iMatix website.
+</UL>
+
+<H3><A NAME="TOC4">Installation Under Unix</A></H3>
+
+<P>Make sure your PERLLIB environmental variable is set, e.g.:
+<PRE>$ echo $PERLLIB
+/usr/lib/perl5
+</PRE>
+
+<P>This is the path where the Perl interpreter can find standard
+Perl libraries.  If you see a blank line after the echo command,
+then your PERLLIB environmental (shell) variable is not set. For
+Perl 5 distributions, the default PERLLIB path is /usr/lib/perl5.
+It is a good idea just to put the assignment of the PERLLIB
+variable into your login command file.  See the appropriate man
+page for your shell for more information.
+
+<P>Then:
+<UL>
+<LI>Download either the htmlpp.tgz or the htmlpp.zip file.
+<LI>Make a directory for the contents of this distribution:
+<PRE>mkdir /usr/local/htmlpp
+</PRE>
+<LI>Copy the downloaded archive to this directory:
+<PRE>cp htmlpp.X /usr/local/htmlpp
+</PRE>
+<LI>cd to this directory and extract the archive file:
+<PRE>Archive:        Extract using:
+--------        --------------
+htmlpp.tgz              tar zxvf htmlpp.tgz
+htmlpp.zip              unzip -a htmlpp.zip
+</PRE>
+<LI>Copy the htmlpp file to a common directory, such as /usr/local/bin.
+Make sure the htmlpp file has execute permission.
+<LI>Copy all the .pl file and the htmlpp.d file from htmlpp directory
+to the PERLLIB directory (Usually, /usr/lib/perl5).
+<PRE>cp /usr/local/htmlpp/*.pl $PERLLIB/
+</PRE>
+Run the htmlpp command with no arguments and you will see the
+following ouput:
+<PRE>Htmlpp - a HTML pre-processor V4.2a
+This is free software and may be freely modified and distributed.
+Copyright (c) 1996-98 iMatix Corporation - http://www.imatix.com
+
+syntax: htmlpp [-debug] [-guru] [-env] [-nofunc] [-page list] [-set name=value]
+               [-charset value] &lt;filename&gt;...
+
+    -debug      Leave work files: useful for debugging macros and loops
+    -guru       Work in Guru Mode
+    -env        Load all environment variables into document symbol table
+    -nofunc     Ignore unknown intrinsic functions (&xxx)
+    -page       Produce only specified pages; list can take any of these
+                forms: 'nn', 'nn-nn', 'nn,nn,nn'.  E.g. -page 1 -page 3,7
+                You can also refer to output filenames: -page index3.htm
+    -set        Set symbol value. This override any default settings or
+                settings made from within the htmlpp input.
+    -charset    Define the character set for the source input.
+                Valid values are 'iso-8859-1' and 'ms-dos'.
+</PRE>
+</UL>
+<P>If you see an error message such as the following:
+<PRE>Can't locate sflcvdp.pl in @INC
+(@INC contains: /usr/lib/perl5/i586-linux/5.00404
+/usr/lib/perl5 /usr/lib/perl5/site_perl/i586-linux
+/usr/lib/perl5/site_perl .)
+at /usr/local/bin/htmlpp line 26.
+</PRE>
+<P>This means that the Perl interpreter cannot find a file
+specified by the 'require' command in the @INC path.  Make
+sure you have copied all the *.pl files from the htmlpp directory
+into $PERLLIB and that the PERLLIB shell variable is set to
+this path.
+
+<H3><A NAME="TOC5">Installation Under MS-DOS</A></H3>
+
+<UL>
+<LI>You must have Perl 4.x or 5.x on your system; I recommend
+you use <A href="ftp://ftp.cs.colorado.edu/mirrors/CPAN/ports/msdos/old/perl4/bperl1x.zip">Big Perl</A>. Bperl requires a 386 and a certain
+amount of memory.  Check the Bperl documentation for details.
+<LI>Download and unzip <A href="/pub/tools/htmlp42a.zip">htmlpp.zip</A>.
+<LI>Check htmlpp.bat - it assumes that the files are installed in
+<TT>C:\SPECIAL</TT>, which is how my system is set-up.  Also, it
+assumes that Big Perl is called <TT>bperl</TT>; it might be called
+simply <TT>perl</TT>.
+<LI>Install htmlpp, htmlpp.bat, and htmlpp.d
+in some convenient directory that is on your path.
+<LI>Install all the .pl files that come with htmlpp in the same
+directory.
+<LI>Change your <TT>autoexec.bat</TT> to define a variable
+<TT>PERLLIB</TT>.  On my system, this is defined like this:
+<TT>set perllib=c:\special;c:\gnutools</TT>.  Reboot or create a
+new DOS window.
+<LI>Run the <TT>htmlpp</TT> command without arguments.  You
+should get a message like this:<BR>
+<PRE>Htmlpp - a HTML pre-processor V4.2a
+This is free software and may be freely modified and distributed.
+Copyright (c) 1996-98 iMatix Corporation - http://www.imatix.com
+
+syntax: htmlpp [-debug] [-guru] [-env] [-nofunc] [-page list] [-set name=value]
+               [-charset value] &lt;filename&gt;...
+
+    -debug      Leave work files: useful for debugging macros and loops
+    -guru       Work in Guru Mode
+    -env        Load all environment variables into document symbol table
+    -nofunc     Ignore unknown intrinsic functions (&xxx)
+    -page       Produce only specified pages; list can take any of these
+                forms: 'nn', 'nn-nn', 'nn,nn,nn'.  E.g. -page 1 -page 3,7
+                You can also refer to output filenames: -page index3.htm
+    -set        Set symbol value. This override any default settings or
+                settings made from within the htmlpp input.
+    -charset    Define the character set for the source input.
+                Valid values are 'iso-8859-1' and 'ms-dos'.
+</PRE>
+</UL>
+
+<H3><A NAME="TOC6">Installation Under 32-bit Windows</A></H3>
+
+<UL>
+<LI>Download Perl for Windows from <A href="http://www.activestate.com/">http://www.activestate.com/</A>.
+<LI>Download and unzip <A href="/pub/tools/htmlp42a.zip">htmlpp.zip</A>.
+<LI>Check htmlpp.bat - it assumes that the files are installed in
+<TT>C:\SPECIAL</TT>, which is how my system is set-up.  Also, it
+assumes that Perl is called <TT>bperl</TT>; change this to 'perl'.
+<LI>Install htmlpp, htmlpp.bat, and htmlpp.d
+in some convenient directory that is on your path.
+<LI>Install all the .pl files that come with htmlpp in the same
+directory.
+<LI>Change your <TT>autoexec.bat</TT> to define a variable
+<TT>PERLLIB</TT>.  On my system, this is defined like this:
+<TT>set perllib=c:\special;c:\gnutools</TT>.  Reboot or create a
+new DOS window.
+<LI>Run the <TT>htmlpp</TT> command it without arguments.  You
+should get a message like this:<BR>
+<PRE>Htmlpp - a HTML pre-processor V4.2a
+This is free software and may be freely modified and distributed.
+Copyright (c) 1996-98 iMatix Corporation - http://www.imatix.com
+
+syntax: htmlpp [-debug] [-guru] [-env] [-nofunc] [-page list] [-set name=value]
+               [-charset value] &lt;filename&gt;...
+
+    -debug      Leave work files: useful for debugging macros and loops
+    -guru       Work in Guru Mode
+    -env        Load all environment variables into document symbol table
+    -nofunc     Ignore unknown intrinsic functions (&xxx)
+    -page       Produce only specified pages; list can take any of these
+                forms: 'nn', 'nn-nn', 'nn,nn,nn'.  E.g. -page 1 -page 3,7
+                You can also refer to output filenames: -page index3.htm
+    -set        Set symbol value. This override any default settings or
+                settings made from within the htmlpp input.
+    -charset    Define the character set for the source input.
+                Valid values are 'iso-8859-1' and 'ms-dos'.
+</PRE>
+</UL>
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="index.htm">&lt;&lt;</A> | <A href="index.htm">&lt;</A>
+ | <A href="index2.htm">&gt;</A> | <A href="index5.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A HREF="index.htm">htmlpp - The HTML Preprocessor</A>
+| <EM>Installing Htmlpp</EM>
+| <A HREF="index2.htm">Getting Started</A>
+| <A HREF="index3.htm">Htmlpp Reference</A>
+| <A HREF="index4.htm">Frequently Asked Questions</A>
+| <A HREF="index5.htm">Other Information</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>
