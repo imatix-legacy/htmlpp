@@ -1,0 +1,212 @@
+<HTML><HEAD><!--Revised: 8 Nov, 1998 By: Pieter Hintjens-->
+<TITLE>htmlpp - The HTML Preprocessor</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> htmlpp home page</A><BR>
+ | <A href="index.htm">&lt;&lt;</A> | &lt;
+ | <A href="index1.htm">&gt;</A> | <A href="index5.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="htmlpp1.gif" ALT="htmlpp" WIDTH=100 HEIGHT=75 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>htmlpp</B><BR><FONT SIZE=2>Version 4.2a
+</TABLE>
+<HR>
+
+<H1>htmlpp - The HTML Preprocessor</H1>
+
+<P>
+<UL>
+<LI><A HREF="#TOC1">Overview</A>
+<LI><A HREF="index1.htm#TOC2">Installing Htmlpp</A>
+<UL>
+<LI><A HREF="index1.htm#TOC3">Getting Htmlpp</A>
+<LI><A HREF="index1.htm#TOC4">Installation Under Unix</A>
+<LI><A HREF="index1.htm#TOC5">Installation Under MS-DOS</A>
+<LI><A HREF="index1.htm#TOC6">Installation Under 32-bit Windows</A>
+</UL>
+<LI><A HREF="index2.htm#TOC7">Getting Started</A>
+<LI><A HREF="index3.htm#TOC8">Htmlpp Reference</A>
+<UL>
+<LI><A HREF="index3.htm#TOC9">Description</A>
+<LI><A HREF="index3.htm#TOC10">Command-line Syntax</A>
+<LI><A HREF="index3.htm#TOC11">Inserting Symbols</A>
+<LI><A HREF="index3.htm#TOC12">Types of Symbol</A>
+<LI><A HREF="index3.htm#TOC13">Standard Symbols</A>
+<LI><A HREF="index3.htm#TOC14">Htmlpp Commands</A>
+<LI><A HREF="index3.htm#TOC15">Htmlpp Macro Processing</A>
+<LI><A HREF="index3.htm#TOC16">Multilingual support</A>
+<UL>
+<LI><A HREF="index3.htm#TOC17">Support For Accented Characters</A>
+<LI><A HREF="index3.htm#TOC18">Dates Formatting</A>
+<LI><A HREF="index3.htm#TOC19">Multilingual Variables</A>
+<LI><A HREF="index3.htm#TOC20">Generating Several Language Versions from a Single Source File</A>
+</UL>
+<LI><A HREF="index3.htm#TOC21">Htmlpp Guru Mode</A>
+<UL>
+<LI><A HREF="index3.htm#TOC22">Standard Guru Mode Definitions</A>
+<LI><A HREF="index3.htm#TOC23">Chapter and Section Headers</A>
+<LI><A HREF="index3.htm#TOC24">Table of Contents</A>
+<LI><A HREF="index3.htm#TOC25">Pagination</A>
+<LI><A HREF="index3.htm#TOC26">Page Headers and Footers</A>
+<LI><A HREF="index3.htm#TOC27">Paragraphs</A>
+<LI><A HREF="index3.htm#TOC28">Preformatted Text</A>
+<LI><A HREF="index3.htm#TOC29">Bulleted and Numbered Lists</A>
+<LI><A HREF="index3.htm#TOC30">Definition Lists</A>
+<LI><A HREF="index3.htm#TOC31">Tables</A>
+<LI><A HREF="index3.htm#TOC32">Figures and Images</A>
+<LI><A HREF="index3.htm#TOC33">Hyperlinks</A>
+<LI><A HREF="index3.htm#TOC34">Special Characters</A>
+</UL>
+<LI><A HREF="index3.htm#TOC35">Htmlpp Intrinsic Functions</A>
+<UL>
+<LI><A HREF="index3.htm#TOC36">The &date Function</A>
+<LI><A HREF="index3.htm#TOC37">The &time Function</A>
+<LI><A HREF="index3.htm#TOC38">The &week_day Function</A>
+<LI><A HREF="index3.htm#TOC39">The &year_week Function</A>
+<LI><A HREF="index3.htm#TOC40">The &julian_date Function</A>
+<LI><A HREF="index3.htm#TOC41">The &lillian_date Function</A>
+<LI><A HREF="index3.htm#TOC42">The &date_to_days Function</A>
+<LI><A HREF="index3.htm#TOC43">The &days_to_date Function</A>
+<LI><A HREF="index3.htm#TOC44">The &future_date Function</A>
+<LI><A HREF="index3.htm#TOC45">The &past_date Function</A>
+<LI><A HREF="index3.htm#TOC46">The &date_diff Function</A>
+<LI><A HREF="index3.htm#TOC47">The &image_width Function</A>
+<LI><A HREF="index3.htm#TOC48">The &image_height Function</A>
+<LI><A HREF="index3.htm#TOC49">The &file_size Function</A>
+<LI><A HREF="index3.htm#TOC50">The &file_date Function</A>
+<LI><A HREF="index3.htm#TOC51">The &file_time Function</A>
+<LI><A HREF="index3.htm#TOC52">The &normalise Function</A>
+<LI><A HREF="index3.htm#TOC53">The &system Function</A>
+<LI><A HREF="index3.htm#TOC54">The &upper Function</A>
+<LI><A HREF="index3.htm#TOC55">The &lower Function</A>
+<LI><A HREF="index3.htm#TOC56">The &pageref Function</A>
+<LI><A HREF="index3.htm#TOC57">The &relpath Function</A>
+</UL>
+<LI><A HREF="index3.htm#TOC58">Multipass Processing</A>
+<LI><A HREF="index3.htm#TOC59">Multipass Debugging</A>
+<LI><A HREF="index3.htm#TOC60">Other Things to Know</A>
+</UL>
+<LI><A HREF="index4.htm#TOC61">Frequently Asked Questions</A>
+<UL>
+<UL>
+<LI><A HREF="index4.htm#TOC62">Why does my .if command not work?</A>
+<LI><A HREF="index4.htm#TOC63">Why does my .if command still not work?</A>
+<LI><A HREF="index4.htm#TOC64">How do I install htmlpp on UNIX?</A>
+<LI><A HREF="index4.htm#TOC65">How do I change the .htm extension to .html?</A>
+<LI><A HREF="index4.htm#TOC66">Do you know of any good link checkers?</A>
+</UL>
+</UL>
+<LI><A HREF="index5.htm#TOC67">Other Information</A>
+<UL>
+<LI><A HREF="index5.htm#TOC68">Product History</A>
+</UL>
+</UL>
+
+<HR>
+<H2><A NAME="TOC1">Overview</A></H2>
+
+<P>An article in the <A href="http://www.linuxjournal.com/issue44/2448.html">December 1997 issue of Linux Journal</A>
+describes htmlpp, and is a good introduction to this tool.
+
+<P><EM>What is htmlpp?</EM>
+<UL>
+<LI>Htmlpp is a pre-processor for HTML documents.
+<LI>Its purpose is to simplify the work of writing and packaging
+large numbers of HTML documents.
+<LI>It acts like a compiler: you provide an input <EM>source text</EM>
+and htmlpp produces the HTML documents from that.  This is easier
+and safer than trying to edit and manage separate HTML documents.
+<LI>To use htmlpp, you should be comfortable writing HTML without
+help from a special HTML editor.  This is not usually a problem,
+since HTML is a simple language.
+<LI>Htmlpp is free software written in Perl, and copyright (c)
+1996-97 iMatix.  It is distributed with full sources according
+to the <A href="/html/gnugpl.htm">GNU General Public License</A>.
+</UL>
+
+<P><EM>What does htmlpp do?</EM>
+<UL>
+<LI>It breaks one input source text file into several HTML
+documents. Typically you will want to edit a larger file (it is
+faster and easier), but provide the information in smaller pieces
+on-line (people can access it easier).  Htmlpp makes this
+possible.
+<LI>It lets you define symbols like <TT>version</TT> in one place,
+then use these in the text like this: <TT>$(version)</TT> so that
+you can make changes in a single place only, not throughout the
+text.
+<LI>It creates tables of contents, and links to chain pages
+together in sequence.
+<LI>It adds headers and footers to pages, so that you can keep a
+consistent style in all HTML pages.
+<LI>It lets you define macros to simplify HTML markup.
+<LI>It converts plain text into HTML using <A href="index3.htm#guru">guru mode</A>.
+<LI>It converts accented characters into HTML metacharacters.
+<LI>It allows you to embed Perl code and to include the output of any
+external program into the page.
+<LI>It queries flat-text databases.
+<LI>It provides features to build multilingual sites.
+<LI>It provides many built-in functions to simplify HTML writing, like
+calculating image dimensions, file sizes, working with dates, etc.
+</UL>
+
+<P><EM>How do I use htmlpp?</EM>
+<UL>
+<LI>Take a look at <A href="htmlpp.txt">htmlpp.txt</A>, which is the documentation
+source for htmlpp's own on-line documentation.  This is the main
+example for htmlpp.
+<LI>The files in <TT>template.zip</TT> provide the basic template
+for a new project.  This zip file is provided as part of the
+<A href="/pub/tools/htmlp42a.zip">htmlpp package</A>.
+<LI>Edit the source text using any text editor, then run htmlpp on
+the source.  It produces a number of HTML files (extension .htm)
+which you can test using a browser.
+<LI>In general, htmlpp generates HTML pages that use <EM>relative
+addressing</EM>, so that pages refer to each other without
+specifying a host or path.  This allows you to test and use the
+HTML pages on a local hard disk.
+</UL>
+
+<P><EM>Where do I get htmlpp?</EM>
+<UL>
+<LI>Htmlpp is available from the <A href="http://www.imatix.com/">iMatix website</A> as
+a <A href="/pub/tools/htmlp42a.zip">zip file</A> for Windows or DOS or OS/2 and as a
+<A href="/pub/tools/htmlp42a.tgz">tgz file</A> for UNIX.  Both contain the same files.
+</UL>
+
+<P><EM>What else should I know?</EM>
+<UL>
+<LI>Htmlpp uses Perl 4 or Perl 5.  It does not use any
+system-specific features, so will run on any box (I wrote it
+mostly under MS-DOS; it's been used on heavily on UNIX and OS/2).
+<LI>Perl is a programming language written by Larry Wall that is
+freely available for many platforms.  If you never installed or
+used Perl, this is an excellent time to start.
+<LI>Under MS-DOS, you will need <A href="ftp://ftp.cs.colorado.edu/mirrors/CPAN/ports/msdos/old/perl4/bperl1x.zip">Big Perl</A> to process
+large documents.
+</UL>
+
+<P><EM>What Are The Alternatives?</EM>
+<UL>
+<LI>A lot of work by hand.
+<LI>A number of other products work somewhat like htmlpp.  Take
+a look at the eponymously named htmlpp at <A href="http://www.eleves.ens.fr:8080/home/nthiery">http://www.eleves.ens.fr:8080/home/nthiery</A>.
+</UL>
+
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="index.htm">&lt;&lt;</A> | &lt;
+ | <A href="index1.htm">&gt;</A> | <A href="index5.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <EM>htmlpp - The HTML Preprocessor</EM>
+| <A HREF="index1.htm">Installing Htmlpp</A>
+| <A HREF="index2.htm">Getting Started</A>
+| <A HREF="index3.htm">Htmlpp Reference</A>
+| <A HREF="index4.htm">Frequently Asked Questions</A>
+| <A HREF="index5.htm">Other Information</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>

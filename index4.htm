@@ -1,0 +1,65 @@
+<HTML><HEAD><!--Revised: 8 Nov, 1998 By: Pieter Hintjens-->
+<TITLE>Frequently Asked Questions</TITLE></HEAD>
+<BODY BACKGROUND="newstone.gif">
+<TABLE WIDTH=100%><TR><TD ALIGN=LEFT>
+ | <A HREF="/index.htm"> iMatix home page</A><BR>
+ | <A HREF="index.htm"> htmlpp home page</A><BR>
+ | <A href="index.htm">&lt;&lt;</A> | <A href="index3.htm">&lt;</A>
+ | <A href="index5.htm">&gt;</A> | <A href="index5.htm">&gt;&gt;</A>
+<TD ALIGN=RIGHT>
+<IMG SRC="htmlpp1.gif" ALT="htmlpp" WIDTH=100 HEIGHT=75 ALIGN=RIGHT HSPACE=10>
+<FONT SIZE=4><B>htmlpp</B><BR><FONT SIZE=2>Version 4.2a
+</TABLE>
+<HR>
+
+<H2><A NAME="TOC61">Frequently Asked Questions</A></H2>
+
+<H4><A NAME="TOC62">Why does my .if command not work?</A></H4>
+<P>Even without looking, I'm sure you're trying something like
+.if $(var) = Xyz. Well, this won't work.  Htmlpp is lazy, and
+sends all its .if commands to Perl to evaluate.  Perl thinks
+that '=' is an assignment, not a comparison.  Which always works,
+or perhaps never does, but certainly will not change depending
+on the value of $(var). To cut a long story short, use 'eq' and
+buy the Camel Book.
+
+<H4><A NAME="TOC63">Why does my .if command still not work?</A></H4>
+<P>Well, maybe you made a mistake.  For example, this is wrong:
+<PRE>if $(TITLE) eq "first second"
+</PRE>
+You have to enclose both arguments in quotes, like this:
+<PRE>if "$(TITLE)" eq "first second"
+</PRE>
+
+<H4><A NAME="TOC64">How do I install htmlpp on UNIX?</A></H4>
+<P>Put it into a common directory like /usr/local/bin; make htmlpp
+executable (chmod +x htmlpp); make sure its .i and .pl files are
+in the same place; put this directory on the PERLLIB path, and put
+it on your PATH too.  That should work.  If you don't have access
+to /usr/local/bin (i.e. you're not root, which if you were you'd
+probably not need help at this point) then make a bin directory
+under your login directory and add $HOME/bin to your path.
+
+<H4><A NAME="TOC65">How do I change the .htm extension to .html?</A></H4>
+<P>Redefine the $(EXT) variable.
+
+<H4><A NAME="TOC66">Do you know of any good link checkers?</A></H4>
+Try <A HREF="http://starship.skyport.net/crew/marduk/linbot/">
+Linbot</A>, written in Python.
+
+<HR><TABLE WIDTH=100%><TR><TD ALIGN=LEFT WIDTH=60%>
+ | <A href="index.htm">&lt;&lt;</A> | <A href="index3.htm">&lt;</A>
+ | <A href="index5.htm">&gt;</A> | <A href="index5.htm">&gt;&gt;</A>
+<BR><FONT SIZE=2>
+| <A HREF="index.htm">htmlpp - The HTML Preprocessor</A>
+| <A HREF="index1.htm">Installing Htmlpp</A>
+| <A HREF="index2.htm">Getting Started</A>
+| <A HREF="index3.htm">Htmlpp Reference</A>
+| <EM>Frequently Asked Questions</EM>
+| <A HREF="index5.htm">Other Information</A>
+<TD ALIGN=RIGHT NOWRAP>
+<A HREF="/index.htm">
+<IMG SRC="im0096c.gif" WIDTH=96 HEIGHT=36 ALT="iMatix" BORDER=0>
+</A>
+<BR><FONT SIZE=2>Copyright &#169; 1996-97 iMatix</TABLE>
+</BODY></HTML>
