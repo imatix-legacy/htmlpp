@@ -8,7 +8,8 @@ open source releases.
 HTMLPP was originally released in 1996, and updated throughout 1998.
 It was later incorporated into other iMatix Corporation products, but
 eventually was replaced by other documentation tools.  HTMLPP was 
-written in Perl (approximately Perl v4).
+written in Perl (Perl 4, to be precise; it appears not to run as-is
+under modern Perl 5).
 
 At this point HTMLPP is only of historic interest; there are much better
 open source tools for generating documentation, including those based on
