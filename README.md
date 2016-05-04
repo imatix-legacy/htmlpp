@@ -27,10 +27,15 @@ on 2016-04-25.
 For more information see the [HTMLPP
 Documentation](https://imatix-legacy.github.io/htmlpp/).
 
-The *source code* is licensed under the GPL v2, a copy of which can
+Originally the source code was licensed under the GPL v2, a copy of which can
 be found in `src/copying`. (`src/copying` was not included in the 
 original archive, only incorporated by reference, but a copy of the GPL
 v2 is included for completeness.)
+
+On [2016-04-29 it was also released under the
+MPLv2](https://github.com/imatix-legacy/license) ([license
+text](https://www.mozilla.org/en-US/MPL/2.0/)), so `htmlpp` can
+be used under either GPLv2 or MPLv2.
 
 The *source* of the *documentation* is in `src/htmlpp.txt`.
 
